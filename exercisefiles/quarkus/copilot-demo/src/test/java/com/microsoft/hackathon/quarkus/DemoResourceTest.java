@@ -12,10 +12,21 @@ public class DemoResourceTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/hello?key=world")
-          .then()
-             .statusCode(200)
-             .body(is("hello world"));
+                .when().get("/hello?key=world")
+                .then()
+                .statusCode(200)
+                .body(is("hello world"));
+    }
+
+    // Create a unit test to validate /diffdates that calculates the difference
+    // between two dates
+    @Test
+    public void testDiffDatesEndpoint() {
+        given()
+                .when().get("/diffdates?date1=01-01-2020&date2=05-01-2020")
+                .then()
+                .statusCode(200)
+                .body(is("Difference between 01-01-2020 and 05-01-2020 is 4 days"));
     }
 
 }
